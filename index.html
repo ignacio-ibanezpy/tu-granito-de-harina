@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu Granito de Harina | Tu mejor aliado nutricional</title>
+  
+  <!-- Tipografías de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-cream: #FAF7F2;
+      --card-bg: #FFFFFF;
+      --primary-brown: #3F2314;
+      --accent-gold: #C68A4C;
+      --gold-light: #F4E8D8;
+      --text-dark: #2A1F18;
+      --text-muted: #6E5F55;
+      --border-warm: #E6D9C8;
+      --shadow-sm: 0 4px 15px rgba(63, 35, 20, 0.05);
+      --shadow-md: 0 12px 30px rgba(63, 35, 20, 0.10);
+      --shadow-hover: 0 18px 40px rgba(63, 35, 20, 0.16);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .serif-font {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Barra de Navegación */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: rgba(250, 247, 242, 0.94);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 8%;
+      border-bottom: 1px solid var(--border-warm);
+      z-index: 1000;
+    }
+
+    .brand-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--primary-brown);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-title span {
+      color: var(--accent-gold);
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 1.8rem;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.25s;
+    }
+
+    .nav-menu a:hover {
+      color: var(--accent-gold);
+    }
+
+    /* Hero Principal */
+    .hero {
+      padding: 5rem 8% 4rem;
+      text-align: center;
+      background: radial-gradient(circle at center, #FFF5E8 0%, var(--bg-cream) 75%);
+    }
+
+    .pill-badge {
+      display: inline-block;
+      background: var(--gold-light);
+      color: var(--primary-brown);
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1.4rem;
+      border: 1px solid var(--border-warm);
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      color: var(--primary-brown);
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero h1 em {
+      color: var(--accent-gold);
+      font-style: italic;
+    }
+
+    .hero .slogan {
+      font-size: 1.35rem;
+      color: var(--accent-gold);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero .description {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 2.2rem;
+    }
+
+    .cta-container {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--primary-brown);
+      color: #fff;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 8px 20px rgba(63, 35, 20, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-gold);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(198, 138, 76, 0.35);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary-brown);
+      border: 2px solid var(--primary-brown);
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary-brown);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* Secciones generales */
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 4.5rem 1.5rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.3rem;
+      color: var(--primary-brown);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* Grillas y Tarjetas */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 2.2rem;
+      border: 1px solid var(--border-warm);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent-gold);
+    }
+
+    .card-icon {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .card h3 {
+      color: var(--primary-brown);
+      font-size: 1.35rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Banner Destacado Nutrición 2026 */
+    .banner-dark {
+      background: linear-gradient(135deg, #3A2113 0%, #201108 100%);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 3.2rem;
+      margin: 3rem 0;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2.5rem;
+      align-items: center;
+      box-shadow: var(--shadow-md);
+    }
+
+    .banner-dark h2 {
+      font-size: 2.1rem;
+      color: #F8D9B4;
+      margin-bottom: 1rem;
+    }
+
+    .banner-dark p {
+      color: #DBC8B8;
+      font-size: 1.02rem;
+      margin-bottom: 1rem;
+    }
+
+    .stat-box {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .stat-box:last-child {
+      margin-bottom: 0;
+    }
+
+    .stat-box strong {
+      font-size: 1.35rem;
+      color: #F8D9B4;
+    }
+
+    /* Tabla de Semillas */
+    .table-wrapper {
+      background: #fff;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-warm);
+      box-shadow: var(--shadow-sm);
+      overflow-x: auto;
+      margin-top: 1.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th {
+      background: #F8F2E8;
+      color: var(--primary-brown);
+      padding: 1.1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border-warm);
+    }
+
+    td {
+      padding: 1.1rem;
+      border-bottom: 1px solid #F1E5D5;
+      font-size: 0.95rem;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Receta del Pan */
+    .recipe-container {
+      background: #fff;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-warm);
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    .recipe-info {
+      background: #F9F3EA;
+      padding: 2.8rem;
+    }
+
+    .recipe-steps {
+      padding: 2.8rem;
+    }
+
+    .recipe-info h3, .recipe-steps h3 {
+      color: var(--primary-brown);
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .ingredients, .steps {
+      padding-left: 1.2rem;
+    }
+
+    .ingredients li, .steps li {
+      margin-bottom: 0.8rem;
+      color: var(--text-dark);
+    }
+
+    .recipe-metrics {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .metric-badge {
+      background: #fff;
+      padding: 1rem 1.2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-warm);
+      flex: 1;
+      text-align: center;
+    }
+
+    .metric-badge small {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .metric-badge span {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary-brown);
+    }
+
+    /* Valores y FODA */
+    .values-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .value-chip {
+      background: var(--gold-light);
+      color: var(--primary-brown);
+      padding: 0.4rem 0.9rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* Contacto y Footer */
+    footer {
+      background: #28150B;
+      color: #E6D8CC;
+      padding: 4.5rem 8% 2.5rem;
+      border-top: 5px solid var(--accent-gold);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1.2fr 1.2fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-col h4 {
+      color: #F8D9B4;
+      font-size: 1.15rem;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-col p {
+      font-size: 0.95rem;
+      color: #CDBEB1;
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.9rem;
+      font-size: 0.95rem;
+    }
+
+    .contact-item a {
+      color: #F8D9B4;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    .team-list {
+      list-style: none;
+    }
+
+    .team-list li {
+      margin-bottom: 0.45rem;
+      color: #CDBEB1;
+      font-size: 0.95rem;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #A18F80;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero h1 { font-size: 2.3rem; }
+      .banner-dark { grid-template-columns: 1fr; padding: 2rem; }
+      .recipe-container { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .navbar { flex-direction: column; gap: 1rem; }
+      .recipe-metrics { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#" class="brand-title">🌾 Tu Granito de <span>Harina</span></a>
+    <ul class="nav-menu">
+      <li><a href="#beneficios">¿Por qué Sésamo?</a></li>
+      <li><a href="#nutricion">Nutrición 2026</a></li>
+      <li><a href="#receta">Pan Saludable</a></li>
+      <li><a href="#institucional">Nosotros & Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- Portada / Hero -->
+  <header class="hero">
+    <div class="pill-badge">Colegio de la Asunción • Proyecto Nutrición 2026</div>
+    <h1>Tu Granito de <em>Harina</em></h1>
+    <p class="slogan">«Tu mejor aliado nutricional»</p>
+    <p class="description">Harinas alternativas y mezclas funcionales a base de sésamo (ajonjolí). Redescubrí el placer del pan casero sin hinchazón ni procesos inflamatorios.</p>
+    <div class="cta-container">
+      <a href="#receta" class="btn-primary">Ver la Receta</a>
+      <a href="#institucional" class="btn-secondary">Contacto</a>
+    </div>
+  </header>
+
+  <!-- ¿Por qué Sésamo? -->
+  <section class="container" id="beneficios">
+    <div class="section-header">
+      <h2>¿Por qué elegir Harina de Sésamo?</h2>
+      <p>Superamos el desafío del trigo refinado con nutrición real y digestión liviana.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <span class="card-icon">🍃</span>
+        <h3>Libre de Inflamación</h3>
+        <p>El trigo moderno hiperprocesado suele provocar pesadez y molestias digestivas. Nuestra harina a base de sésamo es liviana, nutritiva y no genera esa pesadez.</p>
+      </div>
+
+      <div class="card">
+        <span class="card-icon">🦴</span>
+        <h3>973 mg de Calcio</h3>
+        <p>Aporta 973 mg de calcio por cada 100 gramos de harina, superando ampliamente a varios lácteos para proteger y fortalecer los huesos.</p>
+      </div>
+
+      <div class="card">
+        <span class="card-icon">🥖</span>
+        <h3>Lecitina y Elasticidad</h3>
+        <p>Su lecitina natural actúa como emulsionante, permitiendo lograr una masa elástica y un pan esponjoso sin requerir aditivos ni químicos industriales.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nutrición 2026 -->
+  <section class="container" id="nutricion">
+    <div class="banner-dark">
+      <div>
+        <h2>Nutrición 2026: Comida Real</h2>
+        <p><strong>La nueva pirámide invertida:</strong> Prioriza proteínas de alto valor, grasas saludables y vegetales en su base, reduciendo drásticamente harinas blancas y ultraprocesados.</p>
+        <p>Buscamos acercar a las familias mezclas listas (sésamo, chía, salvado) para amasar en casa sin resignar salud ni sabor.</p>
+      </div>
+      <div>
+        <div class="stat-box">
+          <span>Sésamo Nacional (100g)</span>
+          <strong>Gs. 5.000</strong>
+        </div>
+        <div class="stat-box">
+          <span>Semilla de Chía (100g)</span>
+          <strong>Gs. 4.600</strong>
+        </div>
+        <div class="stat-box">
+          <span>Calorías por porción</span>
+          <strong>~123,8 kcal</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabla de semillas alternativas en Paraguay -->
+    <div class="section-header">
+      <h2>Semillas Alternativas en Paraguay</h2>
+      <p>Variedades locales accesibles y con alta densidad de nutrientes.</p>
+    </div>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Semilla</th>
+            <th>Precio Referencial (100g)</th>
+            <th>Propiedades Nutricionales Clave</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Sésamo (Ajonjolí)</strong></td>
+            <td>Gs. 5.000</td>
+            <td>Accesible, rica en calcio (973 mg), sesamina antioxidante y grasas saludables.</td>
+          </tr>
+          <tr>
+            <td><strong>Chía</strong></td>
+            <td>Gs. 4.600</td>
+            <td>Líder en ácidos Omega 3 y alta concentración de fibra soluble para la digestión.</td>
+          </tr>
+          <tr>
+            <td><strong>Girasol y Calabaza</strong></td>
+            <td>Variable local</td>
+            <td>Excelentes fuentes de magnesio, zinc y proteína vegetal regeneradora.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Receta: Pruébalo en casa -->
+  <section class="container" id="receta">
+    <div class="section-header">
+      <h2>Pruébalo en Casa: Pan de Sésamo</h2>
+      <p>Una receta casera, rápida de hornear y diseñada para el bienestar familiar.</p>
+    </div>
+
+    <div class="recipe-container">
+      <div class="recipe-info">
+        <h3>Ingredientes Básicos (12 pancitos de 30g)</h3>
+        <ul class="ingredients">
+          <li><strong>150 g</strong> Harina de sésamo tostado</li>
+          <li><strong>100 g</strong> Leche descremada en polvo</li>
+          <li><strong>5 unidades</strong> Huevos medianos</li>
+          <li><strong>100 ml</strong> Yogurt natural sin azúcar</li>
+          <li><strong>5 g</strong> Polvo de hornear</li>
+          <li><strong>5 g</strong> Goma xantana</li>
+        </ul>
+
+        <div class="recipe-metrics">
+          <div class="metric-badge">
+            <small>Calorías</small>
+            <span>123,8 kcal</span>
+          </div>
+          <div class="metric-badge">
+            <small>Costo estimado</small>
+            <span>Gs. 2.500 / un.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recipe-steps">
+        <h3>Preparación Rápida</h3>
+        <ol class="steps">
+          <li><strong>Mezcla Seca:</strong> En un bowl, mezclar la harina de sésamo tostado con la leche descremada y el polvo de hornear.</li>
+          <li><strong>Integración:</strong> Agregar los huevos batidos, el yogurt natural y la goma xantana hasta lograr una consistencia ligera y homogénea.</li>
+          <li><strong>Moldeado:</strong> Distribuir en moldes pequeños y espolvorear con semillas de sésamo por encima.</li>
+          <li><strong>Cocción:</strong> Hornear durante 20 minutos (o hasta dorar) a temperatura moderada. Dejar enfriar y disfrutar.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Misión, Visión y Valores -->
+  <section class="container">
+    <div class="grid-3">
+      <div class="card">
+        <h3>🎯 Nuestra Misión</h3>
+        <p>Elaborar productos con harinas alternativas para promover una alimentación nutritiva, deliciosa y equilibrada en cada mesa familiar.</p>
+      </div>
+
+      <div class="card">
+        <h3>🚀 Nuestro Objetivo</h3>
+        <p>Acercar a las familias mezclas listas (sésamo, chía, salvado) para preparar panes caseros sin resignar sabor ni salud.</p>
+      </div>
+
+      <div class="card">
+        <h3>⭐ Valores Clave</h3>
+        <p>Principios que guían nuestro proyecto escolar y microempresa:</p>
+        <div class="values-list">
+          <span class="value-chip">Calidad</span>
+          <span class="value-chip">Honestidad</span>
+          <span class="value-chip">Responsabilidad</span>
+          <span class="value-chip">Innovación</span>
+          <span class="value-chip">Compromiso con la Salud</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer y Contacto -->
+  <footer id="institucional">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4 class="serif-font">Tu Granito de Harina</h4>
+        <p>Microempresa escolar de producción de materias primas alternativas para productos nutricionales.</p>
+        <p style="font-style: italic; color: #F4E8D8; margin-top: 1rem;">«Poniendo nuestro granito de harina para que las familias coman más sano todos los días.»</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Información de Contacto</h4>
+        <div class="contact-item">
+          <span>📞</span>
+          <a href="tel:0992350100">(0992) 350-100</a>
+        </div>
+        <div class="contact-item">
+          <span>✉️</span>
+          <a href="mailto:tugranitodeharina@gmail.com">tugranitodeharina@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <span>📸</span>
+          <span>Instagram: <strong>tu granito de harina</strong></span>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: #A8988B;">Colegio de la Asunción • 7.° Grado Azul</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Integrantes del Equipo</h4>
+        <ul class="team-list">
+          <li>Santino Doria</li>
+          <li>Jerónimo Nolasco</li>
+          <li>Sebastián Arrúa</li>
+          <li>Joaquín Servián</li>
+          <li>Azul Ayala</li>
+          <li>Jorge Ibáñez</li>
+          <li>Natalia Rivas</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2026 Tu Granito de Harina. Todos los derechos reservados.
+    </div>
+  </footer>
+
+</body>
+</html>
